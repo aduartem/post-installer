@@ -1,8 +1,22 @@
-#!/bin/sh
 # Instación de NVM y Node.js
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh
-source ~/.nvm/nvm.sh
-nvm install node
-nvm install lts/fermium
-nvm install lts/gallium
-nvm alias default lts/fermium
+
+
+```
+$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+```
+$ source ~/.nvm/nvm.sh
+$ nvm install node
+$ nvm install lts/fermium
+$ nvm install lts/gallium
+$ nvm alias default lts/fermium
+```
+
+Running either of the above commands downloads a script and runs it. The script clones the nvm repository to ~/.nvm, and attempts to add the source lines from the snippet below to the correct profile file (~/.bash_profile, ~/.zshrc, ~/.profile, or ~/.bashrc).
+
+
+```
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
